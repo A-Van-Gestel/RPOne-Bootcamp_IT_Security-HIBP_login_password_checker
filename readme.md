@@ -19,5 +19,5 @@
 3. Install the dependencies: `pip install -r requirements.txt`
 
 4. Run the application:
-   - `flask --app app run` in the console window
+   - `python .\app\__init__.py` in the console window
    - Go to http://127.0.0.1:5000/ in your browser
