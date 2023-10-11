@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Password Checker {% block title %} {% endblock %}</title>
+    <style>
+        nav a {
+            color: #d64161;
+            font-size: 1.5em;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+    </style>
+    {% block style %} {% endblock %}
+</head>
+<body>
+<nav>
+    <a href="{{ url_for('main.index') }}">Index</a>
+    <a href="{{ url_for('main.list_users') }}">List Users</a>
+</nav>
+<hr>
+<div class="content">
+    {% block content %} {% endblock %}
+</div>
+{% block script %} {% endblock %}
+</body>
+</html>

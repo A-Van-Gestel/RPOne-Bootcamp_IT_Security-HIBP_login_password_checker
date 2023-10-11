@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Password Checker</h1>
+
+
+    <form action="{{ url_for("main.index") }}" method="POST">
+        <label>
+            User email:
+            <input name="email" value="{{ user_email }}">
+        </label>
+        <label>
+            User password:
+            <input name="password" value="{{ user_password }}">
+        </label>
+        <input type="submit" value="Register">
+
+        {% if pawned_count > 0 %}
+            <p>Password has been pawned {{ pawned_count }} times, use a different password.</p>
+        {% elif pawned_count == 0 %}
+            <p>Password is good, account will be created</p>
+        {% endif %}
+    </form>
+
+{% endblock %}

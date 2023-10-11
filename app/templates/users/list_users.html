@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} Users {% endblock %}</h1>
+    <div class="content">
+        {% if users %}
+            {% for user in users %}
+                <div class="user">
+                    <p><b>#{{ user.id }}</b></p>
+                    <p><b>Email:</b> {{ user.email }}</p>
+                    <p><b>Password:</b> {{ user.password }}</p>
+                    <p><b>Created:</b> {{ user.created_at }}</p>
+                    <form method="POST"
+                          action="{{ url_for('main.delete', user_id=user.id) }}">
+                        <input type="submit" value="Delete User"
+                               onclick="return confirm('Are you sure you want to delete this entry?')">
+                    </form>
+                    <hr>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No users found, please add some...</p>
+        {% endif %}
+    </div>
+{% endblock %}
