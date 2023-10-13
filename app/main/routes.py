@@ -21,6 +21,10 @@ def index():
         user_email = request.form.get("email")
         user_password = request.form.get("password")
 
+        if user_password == "":
+            pawned_count = -2
+            return render_template('index.html', user_email=user_email, user_password=user_password, pawned_count=pawned_count)
+
         # Check a password to see if it has been disclosed in a public breach corpus
         pawned_count = ppw.is_password_breached(password=user_password)
         if pawned_count:

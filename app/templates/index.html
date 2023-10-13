@@ -7,16 +7,18 @@
     <form action="{{ url_for("main.index") }}" method="POST">
         <label>
             User email:
-            <input name="email" value="{{ user_email }}">
+            <input name="email" value="{{ user_email }}" required>
         </label>
         <label>
             User password:
-            <input name="password" value="{{ user_password }}">
+            <input name="password" value="{{ user_password }}" required>
         </label>
         <input type="submit" value="Register">
 
         {% if pawned_count > 0 %}
             <p>Password has been pawned {{ pawned_count }} times, use a different password.</p>
+        {% elif pawned_count == -2 %}
+            <p>Password can't be empty</p>
         {% elif pawned_count == 0 %}
             <p>Password is good, account will be created</p>
         {% endif %}
